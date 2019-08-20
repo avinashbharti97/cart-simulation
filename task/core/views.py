@@ -9,6 +9,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Cart, Product
 from .cart_api import CartSerializer, ProductSerializer
 from rest_framework import generics
+import datetime
 
 # Create your views here.
 
@@ -18,6 +19,24 @@ class GetCart(generics.ListAPIView):
     def get_queryset(self):
         id = self.kwargs['user_id']
         return Cart.objects.filter(userId = id)
+
+
+class GetNoti(generics.ListAPIView):
+    serializer_class = CartSerializer
+
+    def get_queryset(self):
+        id = self.kwargs['user_id']
+        now = datetime.datetime.now()
+
+
+        #update date here//
+
+
+        if ((now.month ==2 and now.day == 28)or(now.day == 20)) and (Cart.objects.filter(userId = id)):
+            return Cart.objects.filter(userId = id)
+        else:
+            return Cart.objects.none()
+
 
 
 def index(request):

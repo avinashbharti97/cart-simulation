@@ -35,4 +35,10 @@ $ python manage.py runserver
 
     ## to get user cart
     http://127.0.0.1:8000/api/get-user-cart/<userId>/
+
+
+    ## to get notification
+    http://127.0.0.1:8000/api/get-user-notification/<userId>/
+
+    
 ```

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_auth',
     'core',
     'crispy_forms',
-    'webpush'
+    'webpush',
+    'fcm_django'
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'task.wsgi.application'
 
-
+FCM_DJANGO_SETTINGS = { 
+    "FCM_SERVER_KEY": "AAAA3x--mLo:APA91bHw0iOv2WkLcL5teM3stMxsbNb9xyxy0oz0nuU9HHkZ3yI2tMFGhDGV3vBJLlsj7Mkqet0FmcQ4w-ht9qdt2SlmOynbHmoOcjvRt5R4ho7JEtZLxU7eRHPQrQ7kqCg0RmJlMhgK",
+    "ONE_DEVICE_PER_USER": False,
+    "DELETE_INACTIVE_DEVICES": False, 
+ }
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 

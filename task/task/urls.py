@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'api-auth/', include('rest_framework.urls', namespace = 'rest_framework')),
     url(r'api/', include(router.urls)),
     url(r'api/get-user-cart/(?P<user_id>\d+)/', core_views.GetCart.as_view()),
+    url(r'api/get-user-notification/(?P<user_id>\d+)/', core_views.GetNoti.as_view()),
     # url(r'api/get-products/', core_views.GetProducts.as_view())
 ]
 
