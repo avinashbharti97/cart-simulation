@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from django.conf.urls import url, include
 from rest_framework import routers
-from core.cart_api import ProductViewSet, UserViewSet, CartViewSet
+from core.cart_api import ProductViewSet, CartViewSet, UserViewSet
 from core import views as core_views
+
 
 
 router  =routers.DefaultRouter()
@@ -29,6 +31,10 @@ router.register(r'create-cart', CartViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^register/$', core_views.register, name = 'register'),
+    path('rest-auth/', include('rest_auth.urls')),
+    url(r'^login/$', core_views.user_login, name='login'),
+    url(r'^logout/$', core_views.user_logout, name='logout'),
     url(r'', include('core.urls')),
     url(r'api-auth/', include('rest_framework.urls', namespace = 'rest_framework')),
     url(r'api/', include(router.urls)),

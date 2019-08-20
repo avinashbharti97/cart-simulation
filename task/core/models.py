@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Product(models.Model):
@@ -15,14 +17,14 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-class User(models.Model):
+# class User(models.Model):
 
-    name = models.CharField(max_length = 100)
-    description = models.CharField(max_length=400)
+#     name = models.CharField(max_length = 100)
+#     description = models.CharField(max_length=400)
 
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
 class Cart(models.Model):

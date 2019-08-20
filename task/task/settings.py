@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'core'
+    'rest_framework.authtoken', # new!
+    'rest_auth',
+    'core',
+    'crispy_forms',
+    'webpush'
 ]
 
 MIDDLEWARE = [
@@ -101,7 +105,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+WEBPUSH_SETTINGS = {
+   "VAPID_PUBLIC_KEY": "BFapASNdFQ7oONi45PmDz57JuOTc7hnf5tJ6EeE-cpBvWXivEEBgrfZDZ-XSrfsbmrtHYsv299PMRXgiBI85MPY",
+   "VAPID_PRIVATE_KEY": "Ig9aQuOT2xRRtOt6I6cau-zTWoT2N_f76hcJ1yzeros",
+   "VAPID_ADMIN_EMAIL": "avinashbhart97@gmail.com"
+}
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -120,3 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL ='login'
+LOGIN_REDIRECT_URL = '/api/'
+
